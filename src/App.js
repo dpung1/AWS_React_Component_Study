@@ -20,10 +20,12 @@
 import { Global, css } from "@emotion/react";
 import { Reset } from "styled-reset";
 import { GSCommon } from "./styles/common";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Apage from "./pages/Apage/Apage";
 import Bpage from "./pages/Bpage/Bpage";
 import { useState } from "react";
+import Cpage from "./pages/Cpage/Cpage";
+import Principal from "./Principal/Principal";
 
   const SHeader = css`
     display: flex;
@@ -49,11 +51,21 @@ function App() {
       <Reset />
       <Global styles={GSCommon} />
       <div>
-        <div css={SHeader}>{header}</div>
+        <div css={SHeader}>
+          {header}
+          <div>
+            <Link to={ "/a" } >A페이지</Link>
+            <Link to={ "/b" } >B페이지</Link>
+            <Link to={ "/c" } >C페이지</Link>
+            <Link to={ "/principal" }>Principal</Link>
+          </div>
+        </div>
         <div css={SContainer}>
             <Routes>
               <Route path="/a" element={ <Apage /> }/>
               <Route path="/b" element={ <Bpage setHeader={setHeader}/> }/> {/* setHeader의 값을 Bpage로 보냄 */}
+              <Route path="/c" element={ <Cpage /> }/>
+              <Route path="/principal" element={ <Principal /> }/>
             </Routes>
         </div>
       </div>

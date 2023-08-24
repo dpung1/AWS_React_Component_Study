@@ -41,11 +41,11 @@ function Bpage({ setHeader }) { // App.js 에 있는 setHeader의 props 가져�
 
     return (
         <MainLayout title={"B페이지"} menus={menus}>
-            <div> 
-                <h1>{content}</h1>
+            <div> {/* children 영역 */}
+                <h1>{content}</h1> 
                 <input type="text" onChange={handleInputChange} ref={inputRef}/>
                 <button onClick={handleOkClick} >확인</button>
-            </div>
+            </div> {/* children 영역 */}
         </MainLayout>
     );
 }
